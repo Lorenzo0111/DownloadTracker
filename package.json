@@ -1,5 +1,5 @@
 {
-  "name": "downloadtracker",
+  "name": "download-tracker",
   "version": "1.0.0",
   "description": "Download counter",
   "main": "index.js",
