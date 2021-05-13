@@ -1,5 +1,4 @@
 <img src="https://github.com/Lorenzo0111/DownloadTracker/blob/master/media/Logo.png?raw=true" alt="logo">
-===
 
 # What is this
 DownloadTracker is a website where you can track downloads of a file.
