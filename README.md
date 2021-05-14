@@ -11,5 +11,7 @@ Click here to deploy to vercel:
 
 You'll have to set the <code>MONGO</code> process environment to your mongo uri.
 
+If you need to create your own instance of DownloadTracker you'll have to fork the repository and edit the routes and assets.
+
 # Special thanks
 <a href="https://jb.gg/OpenSource"><img src="https://github.com/Lorenzo0111/RocketPlaceholders/blob/master/media/jetbrains.png?raw=true" alt="jetbrains" width="200"/></a>
