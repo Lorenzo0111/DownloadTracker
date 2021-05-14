@@ -70,7 +70,7 @@ function downloads(project,version,res) {
             {
                 "schemaVersion": 1,
                 "label": label,
-                "message": downloads,
+                "message": String(downloads),
                 "color": "informational"
             }
         )
