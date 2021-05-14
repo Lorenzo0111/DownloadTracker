@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "mongo-sanitize": "^1.1.0",
     "mongoose": "^5.12.9",
     "path": "^0.12.7"
   }

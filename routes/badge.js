@@ -22,38 +22,25 @@
  * SOFTWARE.
  */
 
-const app = require('express')();
-const mongoose = require('mongoose');
+const router = require('express').Router();
+const sanitize = require('mongo-sanitize');
+const downloads = require('../modules/downloads');
 
-const port = process.env.PORT || 3000;
-const uri = process.env.MONGO || "mongodb://localhost:27017/tracker";
-
-app.use('/list', require('./routes/files'));
-app.use('/download', require('./routes/download'));
-app.use('/badge', require('./routes/badge'));
-
-mongoose.set('useFindAndModify', false);
-
-// Connect to the database
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true}).then(async () => {
-    console.log("MongoDB connected!");
+router.get('/all', (req, res) => {
+    downloads(null,null,res);
 });
 
-// Default route
-app.get('/', (req, res) => {
-    const state = mongoose.connection.readyState === 1 ? "Online" : "Not Connected";
+router.get('/:project', (req, res) => {
+    const project = sanitize(req.params.project);
 
-    res.json({
-        status: "Online",
-        database: state
-    })
+    downloads(project,null,res);
 })
 
-// Start express server
-console.log("Starting expressjs server..");
+router.get('/:project/:version', (req, res) => {
+    const project = sanitize(req.params.project);
+    const version = sanitize(req.params.version);
 
-app.listen(port, () => {
-    console.log(`DownloadTracker listening at ${port}`);
+    downloads(project,version,res);
 })
 
-module.exports = app;
+module.exports = router;
