@@ -52,6 +52,7 @@ router.get('/:project', async (req, res) => {
                 })
             }
 
+            res.attachment(file)
             res.download(file);
             break;
         default:
@@ -83,6 +84,7 @@ router.get('/:project/:version', (req, res) => {
                 })
             }
 
+            res.attachment(file)
             res.download(file);
             break;
         default:
