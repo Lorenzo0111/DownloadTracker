@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^5.13.2",
-    "nodemon": "^2.0.10",
+    "nodemon": "^2.0.12",
     "path": "^0.12.7"
   }
 }
