@@ -9,9 +9,12 @@ I use this to track my plugins downloads.
 Click here to deploy to vercel:
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FDownloadTracker&env=MONGO)
 
-You'll have to set the <code>MONGO</code> process environment to your mongo uri.
+You'll have to set the following process environment variables:
 
-If you need to create your own instance of DownloadTracker you'll have to fork the repository and edit the routes and assets.
+| key      | description             | example         |
+|----------|-------------------------|-----------------|
+| MIXPANEL | The Mixpanel project id | ...             |
+| DATA     | Allowed github authors  | ["Lorenzo0111"] |
 
 # 💬 Support
 If you need Support you can join my [discord](https://discord.io/RocketPlugins).

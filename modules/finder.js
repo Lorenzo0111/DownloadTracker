@@ -22,22 +22,62 @@
  * SOFTWARE.
  */
 
-const fs = require('fs');
-const path = require('path');
 const tracker = require('./tracker');
+const { Octokit } = require("@octokit/rest");
+const octokit = new Octokit();
 
-function find(project, version) {
-    let file = path.join(__dirname, `../assets/${project}`)
+async function find(project, version) {
+    let release;
 
-    const jarPath = path.join(file, `/${project}-${version}.jar`);
-    const exists = fs.existsSync(jarPath);
+    const data = JSON.parse(String(process.env.DATA));
+    let owner;
 
-    if (!exists) {
+    for (const user of data) {
+        try {
+            const repo = await octokit.repos.get({
+                owner: user,
+                repo: project,
+            })
+
+            if (repo) {
+                owner = user;
+            }
+        } catch (e) {}
+    }
+
+    if (owner == null) {
+        return null;
+    }
+
+    try {
+        if (version) {
+
+                release = await octokit.repos.getReleaseByTag({
+                    owner: owner,
+                    repo: project,
+                    tag: version
+                });
+
+        } else {
+            release = await octokit.repos.getLatestRelease({
+                owner: owner,
+                repo: project
+            });
+        }
+    } catch (e) {
+        return null;
+    }
+
+    if (!release) {
+        return null;
+    }
+
+    if (release.data.assets.length === 0) {
         return null;
     }
 
     tracker.update(project,version);
-    return jarPath;
+    return release.data.assets[0];
 }
 
 module.exports = find;

@@ -22,16 +22,17 @@
  * SOFTWARE.
  */
 
-const Project = require('../models/Project');
+const Mixpanel = require('mixpanel');
+
+const data = Mixpanel.init(process.env.MIXPANEL);
 
 function update(project, version) {
-    Project.findOneAndUpdate({project: project, version: version}, {$inc : {'downloads' : 1}}).exec().then((result) => {
-        if (!result) {
-            return new Project({project: project, version: version}).save();
-        }
-    });
+    data.track(project + " " + version + " download", {
+        project: project,
+        version: version
+    })
 }
 
 module.exports = {
-    update: update
+    update: update,
 };

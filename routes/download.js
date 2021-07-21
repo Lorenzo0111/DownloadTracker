@@ -23,8 +23,7 @@
  */
 
 const router = require('express').Router();
-const path = require('path');
-const fs = require('fs');
+const { https } = require('follow-redirects');
 const finder = require('../modules/finder');
 
 router.get('/:project', async (req, res) => {
@@ -36,34 +35,19 @@ router.get('/:project', async (req, res) => {
         })
     }
 
-    switch (project) {
-        case "RocketJoin":
-        case "RocketPlaceholders":
-            const directory = path.join(__dirname, `../assets/${project}`)
-            const info = fs.readFileSync(path.join(directory, `/info.json`));
+    const file = await finder(project,null);
 
-            const version = JSON.parse(info)['latest'];
-
-            const file = finder(project,version);
-
-            if (!file) {
-                return res.status(404).json({
-                    error: true
-                })
-            }
-
-            res.attachment(file)
-            res.download(file);
-            break;
-        default:
-            return res.json({
-                error: true
-            })
+    if (!file) {
+        return res.status(404).json({
+            error: true
+        })
     }
+
+    download(file, res);
 
 });
 
-router.get('/:project/:version', (req, res) => {
+router.get('/:project/:version', async (req, res) => {
     const project = req.params.project;
     const version = req.params.version;
 
@@ -73,27 +57,31 @@ router.get('/:project/:version', (req, res) => {
         })
     }
 
-    switch (project) {
-        case "RocketJoin":
-        case "RocketPlaceholders":
-            const file = finder(project,version);
+    const file = await finder(project,version);
 
-            if (!file) {
-                return res.status(404).json({
-                    error: true
-                })
-            }
-
-            res.attachment(file)
-            res.download(file);
-            break;
-        default:
-            res.json({
-                error: true
-            })
-            break;
+    if (!file) {
+        return res.status(404).json({
+            error: true
+        })
     }
 
+    download(file, res);
 });
+
+function download(data, res) {
+    const options = {
+        'method': 'GET',
+        'headers': {
+            'Content-disposition': `attachment;"`,
+            'Content-type': 'application/octet-stream'
+        }
+    };
+
+    https.get(data.browser_download_url, options, (response) => {
+        res.header('Content-Disposition', `filename="${data.name}`)
+        response.pipe(res)
+    })
+
+}
 
 module.exports = router;

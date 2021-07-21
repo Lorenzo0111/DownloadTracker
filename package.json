@@ -11,10 +11,13 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@octokit/rest": "^18.6.7",
     "express": "^4.17.1",
+    "follow-redirects": "^1.14.1",
+    "mixpanel": "^0.13.0",
     "mongo-sanitize": "^1.1.0",
-    "mongoose": "^5.13.3",
     "nodemon": "^2.0.12",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
   }
 }

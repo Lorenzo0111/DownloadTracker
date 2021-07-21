@@ -23,29 +23,16 @@
  */
 
 const app = require('express')();
-const mongoose = require('mongoose');
 
 const port = process.env.PORT || 3000;
-const uri = process.env.MONGO || "mongodb://localhost:27017/tracker";
 
-app.use('/list', require('./routes/files'));
+app.set('view engine', 'pug');
 app.use('/download', require('./routes/download'));
-app.use('/badge', require('./routes/badge'));
-
-mongoose.set('useFindAndModify', false);
-
-// Connect to the database
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true}).then(async () => {
-    console.log("MongoDB connected!");
-});
 
 // Default route
 app.get('/', (req, res) => {
-    const state = mongoose.connection.readyState === 1 ? "Online" : "Not Connected";
-
     res.json({
-        status: "Online",
-        database: state
+        status: "Online"
     })
 })
 
