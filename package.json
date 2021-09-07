@@ -13,7 +13,7 @@
   "dependencies": {
     "@octokit/rest": "^18.9.1",
     "express": "^4.17.1",
-    "follow-redirects": "^1.14.2",
+    "follow-redirects": "^1.14.3",
     "mixpanel": "^0.13.0",
     "mongo-sanitize": "^1.1.0",
     "nodemon": "^2.0.12",
