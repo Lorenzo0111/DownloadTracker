@@ -16,7 +16,7 @@
     "follow-redirects": "^1.14.4",
     "mixpanel": "^0.13.0",
     "mongo-sanitize": "^1.1.0",
-    "nodemon": "^2.0.13",
+    "nodemon": "^2.0.14",
     "path": "^0.12.7",
     "pug": "^3.0.2"
   }
