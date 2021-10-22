@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
+require('dotenv').config();
 const app = require('express')();
 
 const port = process.env.PORT || 3000;

@@ -76,6 +76,7 @@ async function find(project, version) {
         return null;
     }
 
+    version = release.data.tag_name
     tracker.update(project,version);
     return release.data.assets[0];
 }

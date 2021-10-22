@@ -26,6 +26,13 @@ const router = require('express').Router();
 const { https } = require('follow-redirects');
 const finder = require('../modules/finder');
 
+router.get('/', async (req, res) => {
+    return res.status(400).json({
+        error: true,
+        message: "Specify a project"
+    })
+})
+
 router.get('/:project', async (req, res) => {
     const project = req.params.project;
 

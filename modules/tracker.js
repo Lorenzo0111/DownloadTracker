@@ -21,16 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+const {Database} = require('sqlite3').verbose();
+const db = new Database("database.db");
 
-const Mixpanel = require('mixpanel');
-
-const data = Mixpanel.init(process.env.MIXPANEL);
+db.run("CREATE TABLE IF NOT EXISTS `downloads` (`project` TEXT NOT NULL, `version` TEXT NOT NULL, `downloads` INT NOT NULL DEFAULT '0', PRIMARY KEY (`project`));");
 
 function update(project, version) {
-    data.track(project + " " + version + " download", {
-        project: project,
-        version: version
-    })
+    try {
+        db.run("INSERT OR IGNORE INTO `downloads` (`project`,`version`,`downloads`) VALUES (?,?,0);", project, version);
+        db.run("UPDATE `downloads` SET `downloads` = `downloads` + 1 WHERE `project` = ? AND `version` = ?;", project, version);
+    } catch (e) {
+        console.log("An error has occurred: " + e )
+    }
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 {
   "name": "download-tracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Download counter",
   "main": "index.js",
   "repository": "https://github.com/Lorenzo0111/DownloadTracker",
@@ -12,12 +12,13 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^18.12.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "follow-redirects": "^1.14.4",
-    "mixpanel": "^0.13.0",
     "mongo-sanitize": "^1.1.0",
     "nodemon": "^2.0.14",
     "path": "^0.12.7",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "sqlite3": "^5.0.2"
   }
 }

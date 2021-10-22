@@ -6,15 +6,15 @@ DownloadTracker is a website where you can track downloads of a file.
 I use this to track my plugins downloads.
 
 # ➕ Deploying
-Click here to deploy to vercel:
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FDownloadTracker&env=MONGO)
-
 You'll have to set the following process environment variables:
 
 | key      | description             | example         |
 |----------|-------------------------|-----------------|
-| MIXPANEL | The Mixpanel project id | ...             |
 | DATA     | Allowed github authors  | ["Lorenzo0111"] |
+
+You can do that by creating a .env file. Look at the [example here](blob/master/.env.example).
+
+Then run `npm run start` to start the program.
 
 # 💬 Support
 If you need Support you can join my [discord](https://discord.io/RocketPlugins).
