@@ -16,7 +16,7 @@
     "express": "^4.17.2",
     "follow-redirects": "^1.14.7",
     "mongo-sanitize": "^1.1.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "pug": "^3.0.2",
     "sqlite3": "^5.0.2"
