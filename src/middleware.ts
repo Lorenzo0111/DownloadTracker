@@ -7,8 +7,22 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user && !request.nextUrl.pathname.startsWith("/auth/login")) {
+  if (
+    !user &&
+    !request.nextUrl.pathname.startsWith("/auth/login") &&
+    !request.nextUrl.pathname.startsWith("/unauthorized")
+  ) {
     return NextResponse.redirect(new URL("/auth/login", request.url));
+  }
+
+  const { data: admin } = await supabase
+    .from("admins")
+    .select("id")
+    .eq("id", user?.id)
+    .single();
+
+  if (!admin) {
+    return NextResponse.redirect(new URL("/unauthorized", request.url));
   }
 
   return response;

@@ -6,19 +6,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 export default function Chart({
   data,
   title,
-  children
+  children,
 }: {
   data: { name: string; total: number }[];
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
-    <Card className="w-1/2">
+    <Card className="w-1/2 flex flex-col justify-end">
       <CardHeader>
-        {children}
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="flex items-center justify-between h-10">
+          <p>{title}</p> {children}
+        </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="mt-auto">
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={data}>
             <XAxis

@@ -33,8 +33,19 @@ export default function TimeChart({
 
   return (
     <Chart title="Downloads over time" data={data}>
-      <div className="flex gap-2 pb-4">
-        <Button variant="secondary">All projects</Button>
+      <div className="flex gap-2">
+        <Button
+          variant={scale === "month" ? "secondary" : "outline"}
+          onClick={() => setScale("month")}
+        >
+          Month
+        </Button>
+        <Button
+          variant={scale === "year" ? "secondary" : "outline"}
+          onClick={() => setScale("year")}
+        >
+          Year
+        </Button>
       </div>
     </Chart>
   );
