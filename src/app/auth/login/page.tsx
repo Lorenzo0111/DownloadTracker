@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -22,10 +23,8 @@ export default async function Page() {
   };
 
   return (
-    <div>
-      <form action={signIn}>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <form action={signIn} className="m-auto">
+      <Button type="submit">Login</Button>
+    </form>
   );
 }

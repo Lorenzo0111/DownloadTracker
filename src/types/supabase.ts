@@ -9,23 +9,43 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      admins: {
+        Row: {
+          id: string;
+        };
+        Insert: {
+          id: string;
+        };
+        Update: {
+          id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "admins_id_fkey";
+            columns: ["id"];
+            isOneToOne: true;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
       downloads: {
         Row: {
           date: string;
           id: number;
-          plugin: string | null;
+          project: string | null;
           version: string;
         };
         Insert: {
           date?: string;
           id?: number;
-          plugin?: string | null;
+          project?: string | null;
           version: string;
         };
         Update: {
           date?: string;
           id?: number;
-          plugin?: string | null;
+          project?: string | null;
           version?: string;
         };
         Relationships: [];
@@ -35,7 +55,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      is_admin: {
+        Args: Record<PropertyKey, never>;
+        Returns: boolean;
+      };
     };
     Enums: {
       [_ in never]: never;

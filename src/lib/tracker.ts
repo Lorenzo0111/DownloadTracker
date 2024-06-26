@@ -1,7 +1,7 @@
-import { createClient } from "./supabase";
+import { createAdminClient } from "./supabase-admin";
 
 export async function update(project: string, version: string) {
-  const supabase = createClient();
+  const supabase = createAdminClient();
 
   await supabase.from("downloads").insert({
     project,
