@@ -1,24 +1,34 @@
 {
-  "name": "download-tracker",
-  "version": "1.1.0",
-  "description": "Download counter",
-  "main": "index.js",
-  "repository": "https://github.com/Lorenzo0111/DownloadTracker",
-  "author": "Lorenzo0111",
+  "name": "next",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "watch": "nodemon index.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "license": "MIT",
   "dependencies": {
-    "@octokit/rest": "^18.12.0",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.2",
-    "follow-redirects": "^1.14.7",
-    "mongo-sanitize": "^1.1.0",
-    "nodemon": "^2.0.15",
-    "path": "^0.12.7",
-    "pug": "^3.0.2",
-    "sqlite3": "^5.0.2"
-  }
+    "@libsql/client": "^0.7.0",
+    "@octokit/rest": "^21.0.0",
+    "@prisma/adapter-libsql": "^5.16.0",
+    "@prisma/client": "5.16.0",
+    "hono": "^4.4.8",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@octokit/openapi-types": "^22.2.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "prisma": "^5.16.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@9.4.0"
 }
