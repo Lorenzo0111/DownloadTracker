@@ -8,17 +8,20 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (
-    !user &&
-    !request.nextUrl.pathname.startsWith("/auth/login") &&
-    !request.nextUrl.pathname.startsWith("/unauthorized")
-  ) {
+    request.nextUrl.pathname.startsWith("/auth/login") ||
+    request.nextUrl.pathname.startsWith("/unauthorized") ||
+    request.nextUrl.pathname.startsWith("/auth/callback")
+  )
+    return response;
+
+  if (!user) {
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
   const { data: admin } = await supabase
     .from("admins")
     .select("id")
-    .eq("id", user?.id)
+    .eq("id", user.id)
     .single();
 
   if (!admin) {
@@ -29,7 +32,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).)*",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

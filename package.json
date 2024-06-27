@@ -1,12 +1,18 @@
 {
-  "name": "next",
-  "version": "0.1.0",
-  "private": true,
+  "name": "download-tracker",
+  "version": "2.0.0",
+  "author": {
+    "name": "Lorenzo0111",
+    "email": "hello@lorenzo0111.me",
+    "url": "https://github.com/Lorenzo0111"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dt": "tsx src/cli/cli.ts"
   },
   "dependencies": {
     "@octokit/rest": "^21.0.0",
@@ -17,6 +23,7 @@
     "@supabase/supabase-js": "^2.44.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "commander": "^12.1.0",
     "hono": "^4.4.8",
     "lucide-react": "^0.397.0",
     "next": "14.2.4",
@@ -31,10 +38,12 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "dotenv": "^16.4.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.4",
+    "tsx": "^4.15.7",
     "typescript": "^5"
   },
   "packageManager": "pnpm@9.4.0"
