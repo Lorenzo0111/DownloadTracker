@@ -1,6 +1,6 @@
 [template.environment]
-  DATA = "[\"Lorenzo0111\"]"
-  NEXT_PUBLIC_SUPABASE_URL = "Your supabase url"
-  NEXT_PUBLIC_SUPABASE_ANON_KEY = "Your supabase anon key"
-  SUPABASE_SECRET = "Your supabase secret"
-  NEXT_PUBLIC_AUTH_METHOD = "discord"
+  DATA = "Your array of users (e.g [\"Lorenzo0111\"])"
+  NEXT_PUBLIC_SUPABASE_URL = "Supabase url"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "Supabase anon key"
+  SUPABASE_SECRET = "Supabase secret key"
+  NEXT_PUBLIC_AUTH_METHOD = "Authentication method (e.g Discord)"
