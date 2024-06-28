@@ -44,7 +44,7 @@ program
   .action(async () => {
     const { data: admins } = await supabase.from("admins").select("id");
 
-    if (!admins.length) console.log("❌ No admins found!");
+    if (!admins?.length) console.log("❌ No admins found!");
     else console.table(admins);
   });
 

@@ -33,19 +33,19 @@ export type Database = {
         Row: {
           date: string;
           id: number;
-          project: string | null;
+          project: string;
           version: string;
         };
         Insert: {
           date?: string;
           id?: number;
-          project?: string | null;
+          project: string;
           version: string;
         };
         Update: {
           date?: string;
           id?: number;
-          project?: string | null;
+          project?: string;
           version?: string;
         };
         Relationships: [];
