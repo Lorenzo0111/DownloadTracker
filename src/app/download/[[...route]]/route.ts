@@ -25,7 +25,8 @@ app.get("/", async (ctx) => {
 
 app.get("/:project", async (ctx) => {
   const project = ctx.req.param("project");
-  const file = await finder(project);
+  const referer = ctx.req.header("Referer") || ctx.req.query("ref") || null;
+  const file = await finder(referer, project);
 
   if (!file) {
     return ctx.json(
@@ -41,9 +42,10 @@ app.get("/:project", async (ctx) => {
 });
 
 app.get("/:project/:version", async (ctx) => {
+  const referer = ctx.req.header("Referer") || ctx.req.query("ref") || null;
   const project = ctx.req.param("project");
   const version = ctx.req.param("version");
-  const file = await finder(project, version);
+  const file = await finder(referer, project, version);
 
   if (!file) {
     return ctx.json(

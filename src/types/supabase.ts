@@ -34,18 +34,21 @@ export type Database = {
           date: string;
           id: number;
           project: string;
+          referer: string | null;
           version: string;
         };
         Insert: {
           date?: string;
           id?: number;
           project: string;
+          referer?: string | null;
           version: string;
         };
         Update: {
           date?: string;
           id?: number;
           project?: string;
+          referer?: string | null;
           version?: string;
         };
         Relationships: [];

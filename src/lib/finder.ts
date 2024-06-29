@@ -1,9 +1,9 @@
-import { update } from "./tracker";
 import { Octokit } from "@octokit/rest";
+import { track } from "./tracker";
 
 const octokit = new Octokit();
 
-async function find(project: string, version?: string) {
+async function find(ref: string | null, project: string, version?: string) {
   const data = JSON.parse(process.env.DATA || "[]");
   let owner;
 
@@ -44,7 +44,7 @@ async function find(project: string, version?: string) {
   if (release.data.assets.length === 0) return null;
 
   version = release.data.tag_name;
-  update(project, version);
+  track(project, version, ref);
   return release.data.assets[0];
 }
 
