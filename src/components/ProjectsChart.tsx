@@ -1,5 +1,5 @@
 import type { Database } from "@/types/supabase";
-import Chart from "./Chart";
+import BarChart from "./BarChart";
 
 export default function ProjectsChart({
   downloads,
@@ -14,7 +14,7 @@ export default function ProjectsChart({
   }, [] as string[]);
 
   return (
-    <Chart
+    <BarChart
       title="Most downloaded project"
       data={data.map((name) => ({
         name,

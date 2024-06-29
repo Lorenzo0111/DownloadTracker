@@ -1,5 +1,6 @@
 import ProjectsChart from "@/components/ProjectsChart";
 import ProjectSelect from "@/components/ProjectSelect";
+import RefererChart from "@/components/RefererChart";
 import StatsCards from "@/components/StatsCards";
 import TimeChart from "@/components/TimeChart";
 import VersionsChart from "@/components/VersionsChart";
@@ -38,6 +39,7 @@ export default async function Page({
         <TimeChart downloads={filteredDownloads} active={active} />
         {active === "*" && <ProjectsChart downloads={filteredDownloads} />}
         {active !== "*" && <VersionsChart downloads={filteredDownloads} />}
+        <RefererChart downloads={filteredDownloads} />
       </div>
     </div>
   );

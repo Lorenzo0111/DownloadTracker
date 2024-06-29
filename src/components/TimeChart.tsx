@@ -1,8 +1,8 @@
 "use client";
 
 import type { Database } from "@/types/supabase";
-import Chart from "./Chart";
 import { useState } from "react";
+import BarChart from "./BarChart";
 import { Button } from "./ui/button";
 
 export default function TimeChart({
@@ -32,7 +32,7 @@ export default function TimeChart({
     }, [] as { name: string; total: number }[]);
 
   return (
-    <Chart title="Downloads over time" data={data}>
+    <BarChart title="Downloads over time" data={data}>
       <div className="flex gap-2">
         <Button
           variant={scale === "month" ? "secondary" : "outline"}
@@ -47,6 +47,6 @@ export default function TimeChart({
           Year
         </Button>
       </div>
-    </Chart>
+    </BarChart>
   );
 }
