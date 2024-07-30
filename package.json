@@ -24,7 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "commander": "^12.1.0",
-    "hono": "^4.5.0",
+    "hono": "^4.5.3",
     "lucide-react": "^0.411.0",
     "next": "14.2.5",
     "react": "^18",
