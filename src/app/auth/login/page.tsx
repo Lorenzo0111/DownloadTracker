@@ -7,8 +7,8 @@ import { redirect } from "next/navigation";
 export default async function Page() {
   const signIn = async () => {
     "use server";
-    const supabase = createClient();
-    const origin = headers().get("origin");
+    const supabase = await createClient();
+    const origin = (await headers()).get("origin");
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: (process.env.NEXT_PUBLIC_AUTH_METHOD as Provider) || "discord",
@@ -20,7 +20,7 @@ export default async function Page() {
     if (error) console.log(error);
     else return redirect(data.url!);
 
-    return null;
+    return;
   };
 
   return (

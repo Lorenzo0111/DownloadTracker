@@ -7,12 +7,14 @@ import VersionsChart from "@/components/VersionsChart";
 import { createClient } from "@/lib/supabase";
 import type { Database } from "@/types/supabase";
 
-export default async function Page({
-  searchParams: { active = "*" },
-}: {
-  searchParams: { active: string };
+export default async function Page(props: {
+  searchParams: Promise<{ active: string }>;
 }) {
-  const supabase = createClient();
+  const searchParams = await props.searchParams;
+
+  const { active = "*" } = searchParams;
+
+  const supabase = await createClient();
   const { data: downloads } = (await supabase
     .from("downloads")
     .select("*")
