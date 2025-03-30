@@ -4,7 +4,7 @@ import { Context, Hono } from "hono";
 import { cors } from "hono/cors";
 import { handle } from "hono/vercel";
 
-export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 const app = new Hono().basePath("/download");
 app.use(

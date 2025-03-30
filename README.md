@@ -8,9 +8,10 @@
 
   <hr />
 
-<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FDownloadTracker&env=DATA,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SECRET,NEXT_PUBLIC_AUTH_METHOD"><img height="32" src="https://vercel.com/button" /></a>
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/Lorenzo0111/DownloadTracker"><img height="32" src="https://www.netlify.com/img/deploy/button.svg" /></a>
-<a href="https://supafork.chroxify.com/new?repository_url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FDownloadTracker"><img height="32" src="https://supafork.chroxify.com/button" /></a>
+<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FDownloadTracker&env=DATA,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SECRET,NEXT_PUBLIC_AUTH_METHOD"><img height="32" src="https://vercel.com/button" alt="Deploy to Vercel" /></a>
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/Lorenzo0111/DownloadTracker"><img height="32" src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" /></a>
+<a href="https://deploy.workers.cloudflare.com/?url=https://github.com/Lorenzo0111/DownloadTracker"><img height="32" src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare" /></a>
+<a href="https://supafork.chroxify.com/new?repository_url=https%3A%2F%2Fgithub.com%2FLorenzo0111%2FDownloadTracker"><img height="32" src="https://supafork.chroxify.com/button" alt="Supabase Setup" /></a>
 
 </div>
 
@@ -51,6 +52,7 @@ The dashboard will usually be available [here](http://localhost:3000/dashboard).
 ### Adding an admin
 
 You must be an admin to access the dashboard. You can use the CLI for that. Here are the steps:
+
 - Create an account on the dashboard
 - Set the same .env variables on your local environment
 - Run `pnpm install`

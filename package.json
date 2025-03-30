@@ -12,7 +12,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dt": "tsx src/cli/cli.ts"
+    "dt": "tsx src/cli/cli.ts",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@octokit/rest": "^21.1.1",
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@octokit/openapi-types": "^24.2.0",
+    "@opennextjs/cloudflare": "^0.6.5",
     "@tailwindcss/postcss": "^4.0.17",
     "@types/node": "^22",
     "@types/react": "19.0.12",
@@ -45,7 +48,8 @@
     "postcss": "^8",
     "tailwindcss": "^4.0.17",
     "tsx": "^4.19.3",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.6.0"
   },
   "packageManager": "pnpm@10.7.0",
   "pnpm": {
