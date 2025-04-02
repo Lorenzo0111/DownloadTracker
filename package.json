@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@octokit/openapi-types": "^24.2.0",
-    "@opennextjs/cloudflare": "^0.6.5",
+    "@opennextjs/cloudflare": "^0.6.6",
     "@tailwindcss/postcss": "^4.0.17",
     "@types/node": "^22",
     "@types/react": "19.0.12",
