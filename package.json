@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "commander": "^13.1.0",
     "hono": "^4.7.5",
-    "lucide-react": "^0.485.0",
+    "lucide-react": "^0.503.0",
     "next": "15.2.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
